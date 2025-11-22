@@ -86,6 +86,20 @@ ggplot(nhis_clean_1_, aes(y = HEIGHTTC_A)) +
 
 #--- frequency tables
 
+table(nhis_clean_1_$SEX_A)
+
+table(nhis_clean_1_$HISPALLP_A)
+
+table(nhis_clean_1_$EDUCP_A)
+
+table(nhis_clean_1_$PHSTAT_A)
+
+table(nhis_clean_1_$LSATIS4R_A)
+
+vars <- c("SEX_A", "HISPALLP_A", "EDUCP_A", "PHSTAT_A", "LSATIS4R_A")
+
+lapply(nhis_clean_1_[vars], table)
+
 
 #--- bar plot
 
@@ -169,22 +183,8 @@ ggplot(nhis_clean_1_, aes(x=factor(LSATIS4R_A))) +
   ylab("frequency") 
 
 
-#--- Generate frequency tables
 
 
-table(nhis_clean_1_$SEX_A)
-
-table(nhis_clean_1_$HISPALLP_A)
-
-table(nhis_clean_1_$EDUCP_A)
-
-table(nhis_clean_1_$PHSTAT_A)
-
-table(nhis_clean_1_$LSATIS4R_A)
-
-vars <- c("SEX_A", "HISPALLP_A", "EDUCP_A", "PHSTAT_A", "LSATIS4R_A")
-
-lapply(nhis_clean_1_[vars], table)
 
 
 
