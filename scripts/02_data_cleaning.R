@@ -52,7 +52,7 @@ nrow(nhis_clean_task1)
 nhis_clean <- nhis_clean_task1 %>%
   mutate(
     EDUCP_A_recoded = case_when(
-      EDUCP_A %in% 0:4 ~"Less than High School",
+      EDUCP_A %in% 0:3 ~"Less than High School",
       EDUCP_A == 4 ~ "High School Graduate",
       EDUCP_A %in% 5:7 ~ "Some College Education",
       EDUCP_A %in% 8:10 ~ "College Graduate or better",
