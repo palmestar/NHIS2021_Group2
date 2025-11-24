@@ -1,36 +1,37 @@
 # Day 2 Tasks 1 & 2
 
+# Load library data for visualization and wrangling
 library(tidyverse)
 
-# Load data
-setwd("~/Downloads")
-getwd()
-list.files()
-nhis <- read_csv("NHIS _Data_2021.csv")                                                                                                                                                                                                                              
+# Load data to be stored within the current file
+setwd("~/Downloads") # Data will be stored here
+getwd() # Working directory
+list.files() # List files
+nhis <- read_csv("NHIS _Data_2021.csv") # NHIS dataset                                                                                                                                                                                                                             
 
 # Check data
-glimpse(nhis)
-summary(nhis)
+glimpse(nhis) # Quick look at data
+summary(nhis) # Description of variables
 
-# Sort variables
+# Sort variables for analysis
 nhis_selected <- nhis %>%
   select(AGEP_A, WEIGHTLBTC_A, HEIGHTTC_A, SEX_A, HISPALLP_A, EDUCP_A, PHSTAT_A, LSATIS4R_A)
 
-# Define
+# Define missing or invalid code
 missing_codes <- c(7, 9, 97, 98, 99, 996, 997, 998, 999)
 
-# Dataset
+# Check data set variables and environment 
 ls()
 names(nhis)
 
-# Create variable
+# Clean data 
 nhis_selected <- nhis %>%
   select(
     AGEP_A, WEIGHTLBTC_A, HEIGHTTC_A, SEX_A, HISPALLP_A, EDUCP_A, PHSTAT_A, LSATIS4R_A
   )
 head(nhis_selected)
 
-# Remove rows
+# Remove unnecessary data 
 nhis_clean_task1 <- nhis_selected %>%
   filter(!(
     AGEP_A %in% missing_codes |
@@ -47,7 +48,7 @@ nhis_clean_task1 <- nhis_selected %>%
 nrow(nhis_selected)
 nrow(nhis_clean_task1)
 
-# Recode
+# Recode variables
 nhis_clean <- nhis_clean_task1 %>%
   mutate(
     EDUCP_A_recoded = case_when(
@@ -59,7 +60,7 @@ nhis_clean <- nhis_clean_task1 %>%
     )
   )
 
-# Convert 
+# Convert the recoded data in order
 nhis_clean$EDUCP_A_recoded <- factor(
   nhis_clean$EDUCP_A_recoded,
   levels = c(
@@ -70,15 +71,16 @@ nhis_clean$EDUCP_A_recoded <- factor(
   )
 )
 
-# Check counts
+# Check frequency of education
 table(nhis_clean$EDUCP_A_recoded)
 
-# Save data
+# Create folder and clean data
 dir.create("data", showWarnings = FALSE)
 write_csv(nhis_clean, "data/nhis_clean.csv")
 
 # Save content
 list.files("data")
 
+# Save a copy
 write.csv(nhis_clean, "nhis_clean.csv", row.names = FALSE)
 getwd()
