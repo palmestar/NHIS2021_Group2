@@ -18,7 +18,7 @@ nhis_selected <- nhis %>%
   select(AGEP_A, WEIGHTLBTC_A, HEIGHTTC_A, SEX_A, HISPALLP_A, EDUCP_A, PHSTAT_A, LSATIS4R_A)
 
 # Define missing or invalid code
-missing_codes <- c(7, 9, 97, 98, 99, 996, 997, 998, 999)
+missing_codes <- c(7, 8, 9, 97, 98, 99, 996, 997, 998, 999)
 
 # Check data set variables and environment 
 ls()
