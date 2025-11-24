@@ -1,6 +1,6 @@
 # Day 3 Task 1
 
-#--- Summary statistics
+#--- Run summary statistics for age, weight, and height
 
 summary(AGEP_A, WEIGHTLBTC_A, HEIGHTTC_A)
 
@@ -20,7 +20,7 @@ sd(HEIGHTTC_A)
 mfv(HEIGHTTC_A)
 
 
-#--- base R histogram
+#--- Create base R histogram for age, weight, and height
 
 
 hist(AGEP_A)
@@ -30,7 +30,7 @@ hist(WEIGHTLBTC_A)
 hist(HEIGHTTC_A)
 
 
-#--- ggplot2 histogram
+#--- Create ggplot2 histogram for age, weight, and height
 
 
 ggplot(nhis_clean_1_, aes(x=AGEP_A)) +
@@ -52,7 +52,7 @@ ggplot(nhis_clean_1_, aes(x=HEIGHTTC_A)) +
   ylab("Count")
 
 
-#--- base R boxplot
+#---Create base R boxplot for age, weight, and height
 
 
 boxplot(AGEP_A)
@@ -62,7 +62,7 @@ boxplot(WEIGHTLBTC_A)
 boxplot(HEIGHTTC_A)
 
 
-#--- ggplot2 boxplot
+#--- Create ggplot2 boxplot for age, weight, and height
 
 
 ggplot(nhis_clean_1_, aes(y = AGEP_A)) + 
@@ -84,7 +84,7 @@ ggplot(nhis_clean_1_, aes(y = HEIGHTTC_A)) +
        y = "HEIGHT Count")
 
 
-#--- frequency tables
+#--- Create frequency tables for gender, race/ethnicity, education, general health status, and quality of life
 
 table(nhis_clean_1_$SEX_A)
 
@@ -101,7 +101,7 @@ vars <- c("SEX_A", "HISPALLP_A", "EDUCP_A", "PHSTAT_A", "LSATIS4R_A")
 lapply(nhis_clean_1_[vars], table)
 
 
-#--- bar plot
+#--- Create bar plot for gender, race/ethnicity, education, health status, and  quality of life
 
 
 counts <- table(nhis_clean_1_$SEX_A)
@@ -149,7 +149,7 @@ barplot(counts,
         col = "skyblue",
         las = 2) 
 
-#--- ggplot2 barplot
+#--- Create ggplot2 barplot for gender, race/ethnicity, education, health status, and  quality of life
 
 
 ggplot(nhis_clean_1_, aes(x=factor(SEX_A))) +
