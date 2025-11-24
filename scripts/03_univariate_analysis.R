@@ -4,8 +4,12 @@
 
 summary(AGEP_A, WEIGHTLBTC_A, HEIGHTTC_A)
 
+#--- Install and load mode
+
 install.packages("modeest")
 library(modeest)
+
+#--- Run summary statistics, standard deviation, and mode for age, weight and height
 
 summary(AGEP_A)
 sd(AGEP_A)
