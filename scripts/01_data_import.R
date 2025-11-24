@@ -8,7 +8,14 @@ View(NHIS_Data_2021)
 
 library(tidyverse)
 
+library(ggplot2)
+
 library(haven)
+
+library(modeest)
+
+library(psych)
+
 
 #--- Perform an initial exploration: use str(), summary(), and head()
 
